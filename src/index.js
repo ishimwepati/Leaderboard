@@ -1,7 +1,5 @@
-
 import './index.css';
-
-import Book from './modules/form';
+import Book from './modules/form.js';
 
 const bookTableBody = document.getElementById('bookTableBody');
 const addButton = document.getElementById('addButton');
@@ -13,7 +11,7 @@ const books = [];
 function renderBooks() {
   bookTableBody.innerHTML = '';
 
-  for (const book of books) {
+  for (const book of books) { // eslint-disable-line
     const row = document.createElement('tr');
     const titleCell = document.createElement('td');
     titleCell.textContent = book.title;
@@ -24,18 +22,17 @@ function renderBooks() {
     row.appendChild(authorCell);
 
     // Only add the REMOVE button if there are books in the list
-  
+
     bookTableBody.appendChild(row);
   }
 }
-
 
 function addBook() {
   const title = titleInput.value.trim();
   const author = authorInput.value.trim();
 
   if (title === '' || author === '') {
-    alert('Please enter both name and score.');
+    alert('Please enter both title and author.'); // Changed the alert message
     return;
   }
 

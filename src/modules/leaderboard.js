@@ -8,24 +8,23 @@ class ManageBookDetails {
   displayBooks = () => {
     const bookTableBody = document.getElementById('bookTableBody');
     bookTableBody.innerHTML = '';
-  
-    this.books.forEach((book, index) => {
+
+    this.books.forEach((book) => {
       const row = document.createElement('tr');
-  
+
       const titleCell = document.createElement('td');
       titleCell.textContent = book.title;
       row.appendChild(titleCell);
-  
+
       const authorCell = document.createElement('td');
       authorCell.textContent = book.author;
       row.appendChild(authorCell);
-  
+
       // Only add the REMOVE button if there are books in the list
-     
+
       bookTableBody.appendChild(row);
     });
   };
-  
 
     Bookadded = () => {
       const title = document.getElementById('titleInput').value;
