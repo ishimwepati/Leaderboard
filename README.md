@@ -32,7 +32,7 @@
 - [📝 License](#license)
 
 <!-- INTRO -->
-# 📖 Portfolio <a name="about-project"></a>
+# 📖 LeaderBoard <a name="about-project"></a>
 
 > This is a Leaderboard project with just HTML, Javascript and CSS using ES6
 
