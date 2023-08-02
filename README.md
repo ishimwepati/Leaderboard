@@ -48,9 +48,9 @@
 <details>
   <summary>Client</summary>
   <ul>
-    <li><a href="https://reactjs.org/">HTML</a></li>
-    <li><a href="https://reactjs.org/">Linters</a></li>
-    <li><a href="https://reactjs.org/">Javascript</a></li>
+    <li><a href="https://html.com/">HTML</a></li>
+    <li><a href="https://github.com/microverseinc/linters-config/tree/master/html-css-js">Linters</a></li>
+    <li><a href="https://www.javascript.com/">Javascript</a></li>
   </ul>
 </details>
 
@@ -101,13 +101,20 @@ Clone this repository to your desired folder using:
 
 ### Install
 
-Make sure you install this project with the latest version of Git and a code editor (VS is goog).
+Make sure you install this project with the latest version of Git and a code editor (VS is good).
+
+Now in your termonal do this :
+
+> - First : "npm install" : to install all npm dependencies
+> - Then type "npm run build"
 
 ### Usage
 
 To run the project, execute the following command:
 
-Browser up your project folder location, once there type the following command using your terminal ### code . all the project files will open and VS.
+Browser up your project folder location, once there type the command below using your terminal ### code . all the project files will open and VS.
+
+> -  "npm start"
 
 ### Deployment
 
