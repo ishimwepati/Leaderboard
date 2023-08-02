@@ -21,6 +21,8 @@ function renderBooks() {
     authorCell.textContent = book.author;
     row.appendChild(authorCell);
 
+    // Only add the REMOVE button if there are books in the list
+
     bookTableBody.appendChild(row);
   }
 }
@@ -30,7 +32,7 @@ function addBook() {
   const author = authorInput.value.trim();
 
   if (title === '' || author === '') {
-    alert('Please enter both title and author.'); 
+    alert('Please enter both title and author.'); // Changed the alert message
     return;
   }
 
