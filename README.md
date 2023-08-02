@@ -71,7 +71,7 @@
 
 ## 🚀 Live Demo <a name="live-demo" target="_blank"></a>
 
-- [Live Demo Link will be added shortly]()
+- [Click here to see it Live ](https://ishimwepati.github.io/Leaderboard/dist/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
