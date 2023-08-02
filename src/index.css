@@ -1,0 +1,144 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f1f1f1;
+    margin: 0;
+    padding: 0;
+  }
+  
+  h1 {
+    color: #333;
+    text-align: center;
+    margin-top: 40px;
+  }
+  
+  .big{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 10px;
+    padding: 1px; 
+
+  }
+
+  .first{
+    background-color: #f1f1f1;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 10px 10px 10px 1px rgba(0, 0, 0, 0.1);
+    margin-left: 20%;
+  }
+  .grid-item-col1{
+    grid-column: 1; 
+  }
+  .grid-item-col2{
+    grid-column: 2;
+    
+  }
+  .container {
+    display: block;
+    max-width: 90%;
+    margin: 0 auto;
+  
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    
+  }
+  
+  .container h2{
+    text-align: left;
+  }
+  .container button{
+    float: right;
+  }
+  .form-title hr {
+    width: 100px;
+    height: 2px;
+    background-color: #000;
+  }
+  
+  .form-title h2 {
+    text-align: center;
+  }
+  .form-cover {
+    margin-right: 20%;
+    padding-left: 2px;
+  }
+  .form-group {
+    margin-bottom: 10px;
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .input-field {
+    width: 50%;
+    padding: 8px;
+    border: 2px solid #000;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  input::placeholder {
+    color: #000;
+  }
+  
+  .button {
+    background-color: #fff;
+    color: #000;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: 42%;
+    border-radius: 4px;
+    border: 2px solid #000;
+  }
+  .form-cover button{
+    margin-right: 8%;
+  }
+  .book-table {
+    width: 100%;
+    margin-top: 20px;
+    border: 2px solid #000;
+    border-radius: 3px;
+  }
+  
+  .book-table th,
+  .book-table td {
+    padding: 12px;
+    text-align: left;
+  }
+  
+  .book-table th {
+    background-color: #2b1f1f;
+    color: #fff;
+  }
+  
+  .book-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .book-table tr:hover {
+    background-color: #ddc1c1;
+  }
+  
+
+  .container.active {
+    display: block;
+  }
+  
+  .form-cover {
+    display: block;
+    background-color: #fff;
+    margin-left: -30px;
+  }
+  
+  .form-cover.active {
+    display: block;
+  }
+  
+  .list-nav {
+    padding-right: 3px;
+  }
+  
+  

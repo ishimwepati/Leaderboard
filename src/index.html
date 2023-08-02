@@ -1,41 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Leaderboard App</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Awesome Books with ES6</title>
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
-  <table align="center">
-    <tr>
-      <td><h1>Leaderboard</h1></td>
-    </tr>
-    <tr>
-      <td>
-        <div class="leaderboard">
-          <h2>Recent scores</h2>
-          <button id="refreshButton">Refresh</button>
-          <ul id="leaderboardList" style="border: 2px solid rgb(85, 81, 81);">
-            <!-- My Record will be displayed here -->
-          </ul>
-        </div>
-      </td>
-      <td>
-        
-      </td>
-      <td>
-        <div class="form">
-          <h2>Add your score</h2>
-          <form id="scoreForm">
-            <input type="text" id="name" required placeholder="Your name"><br><br>
-            <input type="number" id="score" required placeholder="Your Score"><br><br>
-            <button type="submit">Submit</button>
-          </form>
-        </div>
-      </td>
-    </tr>
-  </table>
-
-  <script src="../dist/bundle.js"></script>
+    
+  <h1>Welcome to WazaCode LeaderBoard</h1>
+    <main class="big">
+        <section class="first grid-item-col1" >
+            <div class="container">
+                <table id="bookTable" class="book-table">
+                    <thead>
+                        <tr>
+                          <h2>Recent scores
+                          <button id="refreshButton" class="button">Refresh</button>
+                          </h2>
+                        </tr>
+                        <tr>
+                            <th>Name</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody id="bookTableBody"></tbody>
+                  </table>
+            </div>
+        </section>
+        <section class="first form-cover grid-item-col2">
+            <div class="form-title">
+                <h2>Add your Score</h2>
+            </div>
+            <div class="form-group">
+                <input type="text" id="titleInput" class="input-field" placeholder="Name" required/>
+            </div>
+            <div class="form-group">
+                <input type="number" id="authorInput" class="input-field" placeholder="Score" required/>
+            </div>
+            <div class="form-group">
+                <button id="addButton" class="button">Submit</button>
+            </div>
+        </section>
+    </main>
+    
+    <script src="index.js" type="module" crossorigin="use-credentials"></script>
 </body>
 </html>

@@ -5,7 +5,7 @@ module.exports = {
   entry: './src/index.js',
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Output Management',
+      title: 'Leaderboard App',
       template: './src/index.html', // Path to your index.html file
     }),
   ],
@@ -15,4 +15,12 @@ module.exports = {
     clean: true,
   },
   mode: 'development',
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
+    ],
+  },
 };
