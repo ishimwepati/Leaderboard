@@ -1,14 +1,7 @@
-// leaderboard.js
+let leaderboardData = [];
 
-// Sample data (you can replace this with actual data from an API later)
-const leaderboardData = [
-  { name: 'WazaCode', score: 205 },
-  { name: 'JB', score: 599 },
-  { name: 'Shokano', score: 300 },
-];
 
-// Function to display the leaderboard
-const displayLeaderboard = () => {
+export const displayLeaderboard = () => {
   const leaderboardList = document.getElementById('leaderboardList');
   leaderboardList.innerHTML = '';
 
@@ -19,19 +12,34 @@ const displayLeaderboard = () => {
   });
 };
 
-// Function to add a new score entry
-const addScore = (name, score) => {
+export const addScore = (name, score) => {
   leaderboardData.push({ name, score });
   displayLeaderboard();
+  saveLeaderboardData();
 };
 
-// Function to refresh the leaderboard (this will be replaced with API call later)
-const refreshLeaderboard = () => {
-  // Simulating API call delay with setTimeout
+export const refreshLeaderboard = () => {
   setTimeout(() => {
     leaderboardData.push({ name: 'New Player', score: 400 });
     displayLeaderboard();
-  }, 5000);
+    saveLeaderboardData();
+  }, 1000);
 };
 
-export { leaderboardData, displayLeaderboard, addScore, refreshLeaderboard };
+const saveLeaderboardData = () => {
+  localStorage.setItem('leaderboardData', JSON.stringify(leaderboardData));
+};
+
+export const loadLeaderboardData = () => {
+  const data = localStorage.getItem('leaderboardData');
+  if (data) {
+    try {
+      leaderboardData = JSON.parse(data);
+    } catch (error) {
+      console.error('Error parsing leaderboard data:', error);
+      leaderboardData = [];
+    }
+  }
+};
+
+loadLeaderboardData();

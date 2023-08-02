@@ -1,21 +1,14 @@
-// Import necessary modules
-import { displayLeaderboard, refreshLeaderboard } from './modules/leaderboard';
-import { addScore } from './modules/form';
+// index.js
 
-// Function to initialize the app
+import { displayLeaderboard, refreshLeaderboard, addScore } from './modules/leaderboard';
+import { handleFormSubmit } from './modules/form';
+
 const init = () => {
   displayLeaderboard();
   document.getElementById('refreshButton').addEventListener('click', refreshLeaderboard);
 
   const scoreForm = document.getElementById('scoreForm');
-  scoreForm.addEventListener('submit', (event) => {
-    event.preventDefault();
-    const nameInput = document.getElementById('name');
-    const scoreInput = document.getElementById('score');
-    addScore(nameInput.value, parseInt(scoreInput.value));
-    scoreForm.reset();
-  });
+  scoreForm.addEventListener('submit', handleFormSubmit); 
 };
 
-// Initialize the app
 init();

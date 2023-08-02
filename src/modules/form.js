@@ -1,10 +1,10 @@
-// form.js
+import { addScore } from './leaderboard'; // Import the addScore function from leaderboard.js
 
-// Import the leaderboardData and displayLeaderboard from leaderboard.js
-import { leaderboardData, displayLeaderboard } from './leaderboard';
-
-// Function to add a new score entry
-export const addScore = (name, score) => {
-  leaderboardData.push({ name, score });
-  displayLeaderboard();
-};
+export function handleFormSubmit(event) {
+  event.preventDefault();
+  const nameInput = document.getElementById('name');
+  const scoreInput = document.getElementById('score');
+  addScore(nameInput.value, parseInt(scoreInput.value));
+  nameInput.value = '';
+  scoreInput.value = '';
+}
