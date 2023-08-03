@@ -99,6 +99,9 @@ input::placeholder {
   border: 2px solid #000;
 }
 
+.button:hover{
+  background-color: darkgray;
+}
 .form-cover button {
   margin-right: 8%;
 }
@@ -126,7 +129,7 @@ input::placeholder {
 }
 
 .book-table tr:hover {
-  background-color: #ddc1c1;
+  background-color: #9da3ac;
 }
 
 .form-cover.active {
