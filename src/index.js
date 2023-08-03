@@ -42,16 +42,14 @@ const submitScore = async () => {
 };
 
 const refreshLeaderboard = async () => {
-  // Refresh the leaderboard from the API
+  // Here to Refresh the leaderboard from the API
   await bookManager.refreshLeaderboard();
   renderBooks();
 };
 
-// Attach event listeners
 submitButton.addEventListener('click', submitScore);
 refreshButton.addEventListener('click', refreshLeaderboard);
 
-// Load initial data
 window.onload = async () => {
   await bookManager.refreshLeaderboard();
   renderBooks();

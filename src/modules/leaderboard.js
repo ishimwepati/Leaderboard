@@ -39,7 +39,7 @@ class ManageBookDetails {
       if (Array.isArray(data.result)) {
         this.books = data.result.map((entry) => new Book(entry.user, entry.score));
       } else {
-        // Handle other response formats if needed
+       
         console.error('Invalid response format from the API');
         return;
       }
@@ -50,14 +50,14 @@ class ManageBookDetails {
     }
   };
 
-  submitScore = async (user, score) => { // Rename the parameters to match the API documentation
+  submitScore = async (user, score) => { 
     try {
       const response = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/dQOUT8Crs4dWfi6HfPkP/scores/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ // Modify the object keys to match the API documentation
+        body: JSON.stringify({ 
           user,
           score,
         }),
@@ -67,9 +67,6 @@ class ManageBookDetails {
         throw new Error('Failed to submit score');
       }
 
-      // Uncomment the following line to manually refresh the leaderboard after submission
-      // This will ensure that the new data is displayed only when the "Refresh" button is clicked
-      // this.refreshLeaderboard();
     } catch (error) {
       console.error('Error submitting score:', error);
     }
