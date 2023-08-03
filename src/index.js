@@ -1,17 +1,19 @@
 import './index.css';
-import Book from './modules/form.js';
+import 'regenerator-runtime';
+import ManageBookDetails from './modules/leaderboard.js';
 
 const bookTableBody = document.getElementById('bookTableBody');
-const addButton = document.getElementById('addButton');
+const refreshButton = document.getElementById('refreshButton');
 const titleInput = document.getElementById('titleInput');
 const authorInput = document.getElementById('authorInput');
+const submitButton = document.getElementById('submitButton'); // Update the button ID
 
-const books = [];
+const bookManager = new ManageBookDetails();
 
-function renderBooks() {
+const renderBooks = () => {
   bookTableBody.innerHTML = '';
 
-  for (const book of books) { // eslint-disable-line
+  for (const book of bookManager.books) {
     const row = document.createElement('tr');
     const titleCell = document.createElement('td');
     titleCell.textContent = book.title;
@@ -21,39 +23,38 @@ function renderBooks() {
     authorCell.textContent = book.author;
     row.appendChild(authorCell);
 
-    // Only add the REMOVE button if there are books in the list
-
     bookTableBody.appendChild(row);
   }
-}
+};
 
-function addBook() {
-  const title = titleInput.value.trim();
-  const author = authorInput.value.trim();
+const submitScore = async () => {
+  const name = titleInput.value.trim();
+  const score = parseInt(authorInput.value.trim(), 10);
 
-  if (title === '' || author === '') {
-    alert('Please enter both title and author.'); // Changed the alert message
+  if (name === '' || Number.isNaN(score)) {
+    alert('Please enter both name and a valid numeric score.');
     return;
   }
 
-  const newBook = new Book(title, author);
-  books.push(newBook);
-  renderBooks();
+  await bookManager.submitScore(name, score);
 
   titleInput.value = '';
   authorInput.value = '';
-}
+};
 
-function removeBook(event) {
-  if (event.target.tagName === 'BUTTON') {
-    const titleToRemove = event.target.getAttribute('data-title');
-    const index = books.findIndex((book) => book.title === titleToRemove);
-    if (index !== -1) {
-      books.splice(index, 1);
-      renderBooks();
-    }
-  }
-}
+const refreshLeaderboard = () => {
+  // Refresh the leaderboard from the API
+  bookManager.refreshLeaderboard().then(() => {
+    renderBooks();
+  });
+};
 
-addButton.addEventListener('click', addBook);
-bookTableBody.addEventListener('click', removeBook);
+// Attach event listeners
+submitButton.addEventListener('click', submitScore);
+refreshButton.addEventListener('click', refreshLeaderboard);
+
+// Load initial data
+window.onload = async () => {
+  await bookManager.refreshLeaderboard();
+  renderBooks();
+};
