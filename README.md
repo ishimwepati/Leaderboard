@@ -34,13 +34,14 @@
 <!-- INTRO -->
 # 📖 LeaderBoard <a name="about-project"></a>
 
-> This is a Leaderboard project with just HTML, Javascript and CSS using ES6
+> This is a Leaderboard project with just HTML, Javascript, CSS using ES6 With an API
 
 ## 🛠 Built With <a name="built-with"></a>
 1. HTML
 2. Linters
 3. JavaScript ES6
 4. Webpack
+5. Leaderboard API
 ### Tech Stack <a name="tech-stack"></a>
 
 > This is a version with mono view Desktop 
@@ -64,6 +65,7 @@
 > - Added Javascript
 > - Added HTML syntx from JS
 > - Webpack 
+> - Leaderboard API
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

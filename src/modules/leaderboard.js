@@ -20,49 +20,55 @@ class ManageBookDetails {
       authorCell.textContent = book.author;
       row.appendChild(authorCell);
 
-      // Only add the REMOVE button if there are books in the list
-
       bookTableBody.appendChild(row);
     });
   };
 
-    Bookadded = () => {
-      const title = document.getElementById('titleInput').value;
-      const author = document.getElementById('authorInput').value;
+  bookAdded = (title, author) => {
+    const book = new Book(title, author);
+    this.books.push(book);
 
-      const book = new Book(title, author);
-      this.books.push(book);
+    this.displayBooks();
+  };
 
-      this.displayBooks();
+  refreshLeaderboard = async () => {
+    try {
+      const response = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/dQOUT8Crs4dWfi6HfPkP/scores/');
+      const data = await response.json();
 
-      document.getElementById('titleInput').value = '';
-      document.getElementById('authorInput').value = '';
-
-      localStorage.setItem('books', JSON.stringify(this.books));
-    };
-
-    removeBook = (index) => {
-      this.books.splice(index, 1);
-      this.displayBooks();
-      localStorage.setItem('books', JSON.stringify(this.books));
-    };
-
-    loadBooks = () => {
-      const storedBooks = localStorage.getItem('books');
-      if (storedBooks) {
-        this.books = JSON.parse(storedBooks);
-        this.displayBooks();
+      if (Array.isArray(data.result)) {
+        this.books = data.result.map((entry) => new Book(entry.user, entry.score));
+      } else {
+        console.error('Invalid response format from the API');
+        return;
       }
-    };
+
+      this.displayBooks();
+    } catch (error) {
+      console.error('Error refreshing leaderboard:', error);
+    }
+  };
+
+  submitScore = async (user, score) => {
+    try {
+      const response = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/dQOUT8Crs4dWfi6HfPkP/scores/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          user,
+          score,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to submit score');
+      }
+    } catch (error) {
+      console.error('Error submitting score:', error);
+    }
+  };
 }
 
-const bookManager = new ManageBookDetails();
-
-window.onload = () => {
-  bookManager.loadBooks();
-};
-
-const addButton = document.getElementById('addButton');
-addButton.addEventListener('click', () => {
-  bookManager.Bookadded();
-});
+export default ManageBookDetails;
