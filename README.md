@@ -42,6 +42,8 @@
 3. JavaScript ES6
 4. Webpack
 5. Leaderboard API
+6. Beautifull Design
+
 ### Tech Stack <a name="tech-stack"></a>
 
 > This is a version with mono view Desktop 
