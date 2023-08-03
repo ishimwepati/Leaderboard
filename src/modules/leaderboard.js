@@ -39,7 +39,6 @@ class ManageBookDetails {
       if (Array.isArray(data.result)) {
         this.books = data.result.map((entry) => new Book(entry.user, entry.score));
       } else {
-       
         console.error('Invalid response format from the API');
         return;
       }
@@ -50,14 +49,14 @@ class ManageBookDetails {
     }
   };
 
-  submitScore = async (user, score) => { 
+  submitScore = async (user, score) => {
     try {
       const response = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/dQOUT8Crs4dWfi6HfPkP/scores/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ 
+        body: JSON.stringify({
           user,
           score,
         }),
@@ -66,7 +65,6 @@ class ManageBookDetails {
       if (!response.ok) {
         throw new Error('Failed to submit score');
       }
-
     } catch (error) {
       console.error('Error submitting score:', error);
     }
