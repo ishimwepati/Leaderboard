@@ -99,9 +99,10 @@ input::placeholder {
   border: 2px solid #000;
 }
 
-.button:hover{
+.button:hover {
   background-color: darkgray;
 }
+
 .form-cover button {
   margin-right: 8%;
 }
