@@ -1,19 +1,18 @@
 import './index.css';
-import 'regenerator-runtime';
 import ManageBookDetails from './modules/leaderboard.js';
 
 const bookTableBody = document.getElementById('bookTableBody');
 const refreshButton = document.getElementById('refreshButton');
 const titleInput = document.getElementById('titleInput');
 const authorInput = document.getElementById('authorInput');
-const submitButton = document.getElementById('submitButton'); // Update the button ID
+const submitButton = document.getElementById('submitButton');
 
 const bookManager = new ManageBookDetails();
 
 const renderBooks = () => {
   bookTableBody.innerHTML = '';
 
-  for (const book of bookManager.books) {
+  bookManager.books.forEach((book) => {
     const row = document.createElement('tr');
     const titleCell = document.createElement('td');
     titleCell.textContent = book.title;
@@ -24,7 +23,7 @@ const renderBooks = () => {
     row.appendChild(authorCell);
 
     bookTableBody.appendChild(row);
-  }
+  });
 };
 
 const submitScore = async () => {
@@ -42,11 +41,10 @@ const submitScore = async () => {
   authorInput.value = '';
 };
 
-const refreshLeaderboard = () => {
+const refreshLeaderboard = async () => {
   // Refresh the leaderboard from the API
-  bookManager.refreshLeaderboard().then(() => {
-    renderBooks();
-  });
+  await bookManager.refreshLeaderboard();
+  renderBooks();
 };
 
 // Attach event listeners
