@@ -75,7 +75,7 @@
 
 ## 🚀 Live Demo <a name="live-demo" target="_blank"></a>
 
-- [Click here to see it Live ](https://ishimwepati.github.io/Leaderboard/dist/)
+- [Kindly Click Here to opon the demo ](https://ishimwepati.github.io/Leaderboard/dist/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -136,13 +136,6 @@ You can deploy this project using:
 - GitHub: [@ishimwepati](https://github.com/ishimwepati)
 - Twitter: [@PatientMusafir1](https://twitter.com/PatientMusafir1)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/ishimwe-joseph-patient-0537b4155/)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-## 🔭 Future Features <a name="future-features"></a>
-
-- [ ] **Implment a colorful Design**
-
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
